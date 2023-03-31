@@ -10,5 +10,10 @@ class TestCouleur {
 	void test() {
 		fail("Not yet implemented");
 	}
+	
+	@org.junit.Test
+    public void testCouleur() {
+        assertEquals();
+    }
 
 }
