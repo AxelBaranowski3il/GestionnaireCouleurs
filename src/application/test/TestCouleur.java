@@ -4,16 +4,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class TestCouleur {
+import application.Couleur;
 
-	@Test
-	void test() {
-		fail("Not yet implemented");
-	}
+class TestCouleur {
 	
 	@org.junit.Test
     public void testCouleur() {
-        assertEquals();
+		Couleur c = new Couleur(1, 2, 3);
+        assertEquals("#010203", c.getCouleur());
     }
-
+	
 }
