@@ -8,10 +8,16 @@ import application.Couleur;
 
 class TestCouleur {
 	
-	@org.junit.Test
+	@Test
     public void testCouleur() {
 		Couleur c = new Couleur(1, 2, 3);
         assertEquals("#010203", c.getCouleur());
+    }
+	
+	@Test
+    public void testGetRed() {
+		Couleur c = new Couleur(1, 2, 3);
+        assertEquals("1", String.valueOf(c.getRed()));
     }
 	
 }
