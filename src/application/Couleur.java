@@ -16,8 +16,11 @@ package application;
  */
 public class Couleur {
 
-	// Nom de la couleur 
+	// Nom de la couleur en format web
 	private String couleur;
+	
+	// Nom du label de la couleur
+	private String nomCouleur;
 	
 	// Composante RED
 	private int red;
@@ -33,11 +36,26 @@ public class Couleur {
 	 * Il prend en parametre les composantes RGB 
 	 * et convertit la couleur dans un format web
 	 */
-	public Couleur (int r, int g, int b) {
+	public Couleur (int r, int g, int b, String nomCouleur) {
+		this.nomCouleur = nomCouleur;
 		red = r;
 		green = g;
 		blue = b; 
 		couleur = String.format("#%02X%02X%02X", r, g, b);
+	}
+	
+	/*
+	 * Affiche le label de la couleur
+	 */
+	public String getNomCouleur() {
+		return nomCouleur;
+	}
+	
+	/*
+	 * Change le label de la couleur
+	 */
+	public void setNomCouleur(String nomCouleur) {
+		this.nomCouleur = nomCouleur;
 	}
 
 	/*
