@@ -15,7 +15,7 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="119.0" layoutY="235.0" mnemonicParsing="false" text="Ajouter" />
+            <Button fx:id="btnAdd" layoutX="119.0" layoutY="235.0" mnemonicParsing="false" text="Ajouter" />
             <Button layoutX="226.0" layoutY="235.0" mnemonicParsing="false" text="Supprimer" />
             <TextField fx:id="blue" layoutX="201.0" layoutY="197.0" prefHeight="18.0" prefWidth="98.0" />
             <TextField fx:id="green" layoutX="202.0" layoutY="167.0" prefHeight="25.0" prefWidth="96.0" />

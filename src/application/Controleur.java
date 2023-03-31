@@ -2,12 +2,15 @@ package application;
 
 import java.awt.event.ActionEvent;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 public class Controleur {
 	
@@ -29,12 +32,20 @@ public class Controleur {
 	@FXML
 	TextField blue;
 	
+	@FXML
+	Button btnAdd;
+	
+	@FXML
+	SimpleObjectProperty<Color> clr;
+	
 	ObservableList<String> colorList = FXCollections.observableArrayList();
 	
 	@FXML
 	private void initialize() {
 		
 		
+		
+		fillColors();
 		imgRectColor.setItems(colorList);
 		imgRectColor.setCellFactory((ListView<String> lst)-> new FabriqueColorRect());
 		imgRectColor.getSelectionModel().selectedIndexProperty().addListener(observable ->{
@@ -69,8 +80,10 @@ public class Controleur {
 		
 	}
 	
-	private void buttonClicked(ActionEvent evt) {
+	private void buttonAdd(ActionEvent evt) {
 		fillColors();
 	}
+	
+	
 	
 }

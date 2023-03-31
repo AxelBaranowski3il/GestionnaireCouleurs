@@ -12,16 +12,13 @@ public class FabriqueColorRect extends ListCell<String>{
 	protected void updateItem(String item, boolean empty) {
 		super.updateItem(item, empty);
 		if (item != null) {
-			VBox vbox = new VBox();
-			vbox .setAlignment(Pos.CENTER);
+			
 			Rectangle rect = new Rectangle(32, 32);
 			rect.setFill(Color.web(item));
 			setGraphic(rect);
-			Label label = new Label(item);
-			vbox.getChildren().add(rect);
-			vbox.getChildren().add(label);
 			
-			setGraphic(vbox);
+			
+			
 		}
 	}
 }
