@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleObjectProperty;
@@ -39,43 +40,45 @@ public class ModelGestionnaire {
 		this.pathSauvFile = pathSauvFile;
 	}
 	
+	
+	/**
+	 * methode pour ecrire dans le fichier 
+	 */
 	public void ecritureFile() {
-		
+		String ligne;
+		try {
+			PrintWriter fichierCible = new PrintWriter(pathSauvFile);
+			
+			fichierCible.println("Hello");
+			fichierCible.close();
+		} catch (IOException e) {
+			System.out.println("Problème d'accès au ficher");
+		}
 	}
 	
+	
+	/**
+	 * Méthode pour lire dans le fichier 
+	 */
 	public void lectureFile() {
-		try
-	    {
-	        // Le fichier d'entrée
-	        File file = new File(pathSauvFile);    
-	        // Créer l'objet File Reader
-	        FileReader fr = new FileReader(file);  
-	        // Créer l'objet BufferedReader        
-	        BufferedReader br = new BufferedReader(fr);  
-	        StringBuffer sb = new StringBuffer();    
-	        String line;
-	        while((line = br.readLine()) != null)
-	        {
-		        // ajoute la ligne au buffer
-		        sb.append(line);      
-		        sb.append("\n");     
-	        }
-	        fr.close();    
-	        System.out.println("Contenu du fichier: ");
-	        System.out.println(sb.toString());  
-	    }
-	    catch(IOException e)
-	    {
-	    	e.printStackTrace();
-	    }
+		String ligne;
+		int a = 1;
+		try {
+			BufferedReader fichier = new BufferedReader(new FileReader(pathSauvFile));
+			do {
+				ligne = fichier.readLine();
+				if (ligne != null) {
+					System.out.println(a + " - " + ligne);
+					a++;
+				}
+			} while (ligne != null);
+			fichier.close();
+		} catch (IOException e) {
+			System.out.println("Probleme d'accès fichier");
+		}
 	}
 	
-	public static void main(String[] args ) {
-		ArrayList<String> c = new ArrayList<>();
-		ModelGestionnaire m = new ModelGestionnaire(c, "sauv.txt");
-		m.lectureFile();
-		
-	}
+	
 	
 	
 }
